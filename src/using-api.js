@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 function UsingApi() {
-  const [name, setName] = useState({});
+  const [name, setName] = useState([]);
 
   useEffect(() => {
     axios
