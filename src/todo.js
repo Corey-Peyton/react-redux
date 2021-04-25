@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 
 const Todo = () => {
   const [inputvalue, setInputValue] = useState("");
@@ -31,23 +32,23 @@ const Todo = () => {
 
   // console.log(`this is filterd value ${JSON.stringify(moduser2)}`);
   return (
-    <div style={{ marginTop: "50px" }}>
-      <h3>
-        <ol>
+    <div>
+      <h2>
+        <ol style={{ padding: "0" }}>
           {todo.map((arr) => (
-            <div key={arr.id}>
+            <ItemBox key={arr.id}>
               <li>{arr.text}</li>
-              <button
+              <DeleButton
                 onClick={() =>
                   setTodo(todo.filter((dele) => dele.id !== arr.id))
                 }
               >
                 Delete
-              </button>
-            </div>
+              </DeleButton>
+            </ItemBox>
           ))}
         </ol>
-      </h3>
+      </h2>
       <input
         type="text"
         onChange={(e) => setInputValue(e.target.value)}
@@ -59,5 +60,25 @@ const Todo = () => {
     </div>
   );
 };
+
+const ItemBox = styled.div`
+  display: flex;
+  align-items: center;
+  width: 25%;
+  padding: 30px;
+  margin: 10px;
+  border: 2px dotted palevioletred;
+  border-radius: 3px;
+  font-size: 18px;
+`;
+
+const DeleButton = styled.button`
+  color: palevioletred;
+  font-size: 14px;
+  padding: 0.25em 1em;
+  margin-left: 10px;
+  border: 1px solid palevioletred;
+  border-radius: 20px;
+`;
 
 export default Todo;

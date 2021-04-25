@@ -39,14 +39,10 @@ function BasicRedux() {
 
   return (
     <div>
-      {isLogged ? (
-        <h1>Welcome Trupesh, Now you can make changes in Counter</h1>
-      ) : (
-        <h1>User in not loged in, You can't made changes in counter</h1>
-      )}
+      {isLogged ? <h1>Welcome Trupesh</h1> : <h1>User in not loged-in</h1>}
       <button onClick={() => dispatch(log())}>Make user login</button>
       <br /> <br />
-      <h1>Counter {countreducer}</h1>
+      <h2 style={{ margin: "10px 0" }}>Counter {countreducer}</h2>
       <input
         disabled={!isLogged}
         type="number"
@@ -65,30 +61,38 @@ function BasicRedux() {
       >
         -
       </button>
-      <ItemBox>
-        <h3>{`Total User ${intstate?.length}`}</h3>
-        {intstate?.map((profile, i) => {
-          return (
-            <ol key={i}>
-              <li>{`ID is ${profile.Id}`}</li>
-              <li>{`Name is ${profile.Name}`}</li>
-              <DeleteButton onClick={() => dispatch(removename(profile.Id))}>
-                Delete
-              </DeleteButton>
-            </ol>
-          );
-        })}
-      </ItemBox>
-      <input
-        type="text"
-        //disabled={!isLogged}
-        onChange={(e) => setName(e.target.value)}
-        placeholder="enter name"
-        value={name}
-      />
-      <button disabled={!name} onClick={submitHand}>
-        Add
-      </button>
+      {isLogged ? (
+        <>
+          <ItemBox>
+            <h3>{`Total User ${intstate?.length}`}</h3>
+            {intstate?.map((profile, i) => {
+              return (
+                <ol key={i}>
+                  <li>{`Name is ${profile.Name}`}</li>
+                  <li>{`ID is ${profile.Id}`}</li>
+                  <DeleteButton
+                    onClick={() => dispatch(removename(profile.Id))}
+                  >
+                    Delete
+                  </DeleteButton>
+                </ol>
+              );
+            })}
+          </ItemBox>
+          <input
+            type="text"
+            //disabled={!isLogged}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="enter name"
+            value={name}
+          />
+          <button disabled={!name} onClick={submitHand}>
+            Add
+          </button>
+        </>
+      ) : (
+        ""
+      )}
     </div>
   );
 }
@@ -99,7 +103,7 @@ const ItemBox = styled.div`
   font-size: 1em;
   width: fit-content;
   padding: 0.25em 1em;
-  margin: 3rem 0 1rem;
+  margin: 20px 0;
   border: 2px dotted palevioletred;
   border-radius: 3px;
 `;
@@ -109,7 +113,7 @@ const DeleteButton = styled.button`
   font-size: 1em;
   padding: 0.25em 1em;
   margin: 5px 0 0;
-  border: 2px solid palevioletred;
+  border: 1px solid palevioletred;
   border-radius: 3px;
 `;
 

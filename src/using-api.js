@@ -10,7 +10,7 @@ function UsingApi() {
       .get("https://api.covid19india.org/data.json")
       .then((date) => {
         setName(date.data.statewise);
-        console.log(date.data.statewise);
+        console.log(date);
       })
       .catch((err) => console.log(err));
   }, []);
