@@ -1,17 +1,26 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 function UsingApi() {
-  useEffect(() => {
-    const api = axios
-      .get("https://pokeapi.co/api/v2/pokemon")
-      .then((dat) => console.log(dat.data))
-      .catch((err) => console.log(err));
+  const [name, setName] = useState({});
 
-    console.log(api);
+  useEffect(() => {
+    axios
+      .get("https://pokeapi.co/api/v2/pokemon")
+      .then((date) => {
+        setName(date.data.results);
+        console.log(date.data.results);
+      })
+      .catch((err) => console.log(err));
   }, []);
 
-  return <h1>Usinsdfds</h1>;
+  return (
+    <h1>
+      {name.map((d) => {
+        return <h3>{d.name}</h3>;
+      })}
+    </h1>
+  );
 }
 
 export default UsingApi;
