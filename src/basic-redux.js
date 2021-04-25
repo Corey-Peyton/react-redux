@@ -93,7 +93,7 @@ function BasicRedux() {
   );
 }
 
-// styled component new
+// styled component
 
 const ItemBox = styled.div`
   font-size: 1em;
