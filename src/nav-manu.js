@@ -10,15 +10,23 @@ const Manu = () => {
   return (
     <MainCont>
       <NavButton
-        className={location.pathname === "/" ? "activebtn" : ""}
-        onClick={() => history.push("/")}
+        bg={location.pathname === "/basic-redux" ? "activebtn" : ""}
+        onClick={() => history.push("/basic-redux")}
       >
         Redux Todo
       </NavButton>
-      <NavButton onClick={() => history.push("/normal-todo")}>
+      <NavButton
+        bg={location.pathname === "/normal-todo" ? "activebtn" : ""}
+        onClick={() => history.push("/normal-todo")}
+      >
         Norml Todo
       </NavButton>
-      <NavButton onClick={() => history.push("/covid-19")}>Covied 19</NavButton>
+      <NavButton
+        bg={location.pathname === "/covid-19" ? "activebtn" : ""}
+        onClick={() => history.push("/covid-19")}
+      >
+        Covied 19
+      </NavButton>
     </MainCont>
   );
 };
@@ -41,12 +49,15 @@ const MainCont = styled.div`
 `;
 
 const NavButton = styled.button`
-  color: palevioletred;
   font-size: 1em;
   padding: 0.25em 1em;
   margin: 5px 10px;
+  cursor: pointer;
   border: 1px solid palevioletred;
   border-radius: 3px;
+  color: ${(props) => (props.bg === "activebtn" ? "white" : "palevioletred")};
+  background-color: ${(props) =>
+    props.bg === "activebtn" ? "palevioletred" : ""};
 `;
 
 export default Manu;
