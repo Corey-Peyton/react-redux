@@ -26,11 +26,13 @@ function DatailApi() {
   return (
     <TopContainer>
       <Backbutton onClick={() => history.goBack()}>Back</Backbutton>
-      <h1>{currentState}</h1>
-      <h2>{`Active cases ${asd[0]?.active}`}</h2>
-      <h2>{`Recovered ${asd[0]?.recovered}`}</h2>
-      <h2>{`Deaths ${asd[0]?.deaths}`}</h2>
-      <h2>{`Last Updated Time ${asd[0]?.lastupdatedtime}`}</h2>
+      <ItemBox>
+        <State>{currentState}</State>
+        <Datails>{`Active cases ${asd[0]?.active}`}</Datails>
+        <Datails>{`Recovered ${asd[0]?.recovered}`}</Datails>
+        <Datails>{`Deaths ${asd[0]?.deaths}`}</Datails>
+        <Datails>{`Last Updated Time ${asd[0]?.lastupdatedtime}`}</Datails>
+      </ItemBox>
     </TopContainer>
   );
 }
@@ -41,6 +43,17 @@ const TopContainer = styled.div`
   margin: 90px 0;
 `;
 
+const State = styled.h3`
+  font-size: 30px;
+  margin: 5px 0 15px 0;
+  border-bottom: 1px solid palevioletred;
+`;
+
+const Datails = styled.h2`
+  font-size: 23px;
+  margin: 10px 0;
+`;
+
 const Backbutton = styled.button`
   color: palevioletred;
   cursor: pointer;
@@ -48,6 +61,15 @@ const Backbutton = styled.button`
   padding: 0.25em 1em;
   border: 1px solid palevioletred;
   border-radius: 10px;
+`;
+
+const ItemBox = styled.div`
+  width: 30%;
+  padding: 5px;
+  margin: 20px 10px 0 0;
+  border: 2px dotted palevioletred;
+  border-radius: 3px;
+  font-size: 18px;
 `;
 
 export default DatailApi;
