@@ -37,7 +37,7 @@ function DatailApi() {
   );
 }
 
-// styled component new
+// styled component
 
 const TopContainer = styled.div`
   margin: 90px 0;

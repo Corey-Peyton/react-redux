@@ -31,6 +31,8 @@ const Manu = () => {
   );
 };
 
+// styled component
+
 const MainCont = styled.div`
   background-image: linear-gradient(
     to right,
