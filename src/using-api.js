@@ -74,6 +74,7 @@ const Number = styled.div`
 
 const ViewButton = styled.button`
   color: palevioletred;
+  cursor: pointer;
   font-size: 14px;
   padding: 0.25em 1em;
   border: 1px solid palevioletred;
