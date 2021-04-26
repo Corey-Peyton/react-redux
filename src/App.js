@@ -4,6 +4,7 @@ import Todo from "./todo";
 import UsingApi from "./using-api";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Manu from "./nav-manu";
+import DatailApi from "./details-api";
 
 function App() {
   return (
@@ -16,8 +17,11 @@ function App() {
         <Route path="/normal-todo">
           <Todo />
         </Route>
-        <Route path="/Covid-19">
+        <Route exact path="/covid-19">
           <UsingApi />
+        </Route>
+        <Route path="/covid-19/:state">
+          <DatailApi />
         </Route>
       </Switch>
     </Router>

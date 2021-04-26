@@ -32,7 +32,7 @@ const Todo = () => {
 
   // console.log(`this is filterd value ${JSON.stringify(moduser2)}`);
   return (
-    <div>
+    <TopContainer>
       <h2>
         <ol style={{ padding: "0" }}>
           {todo.map((arr) => (
@@ -57,15 +57,21 @@ const Todo = () => {
       <button disabled={!inputvalue} onClick={submithend}>
         Submit
       </button>
-    </div>
+    </TopContainer>
   );
 };
+
+// styled component new
+
+const TopContainer = styled.div`
+  margin: 90px 0;
+`;
 
 const ItemBox = styled.div`
   display: flex;
   align-items: center;
   width: 25%;
-  padding: 30px;
+  padding: 10px 30px;
   margin: 10px;
   border: 2px dotted palevioletred;
   border-radius: 3px;

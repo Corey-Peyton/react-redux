@@ -1,23 +1,25 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
+import { useHistory } from "react-router-dom";
 
 function UsingApi() {
-  const [name, setName] = useState([]);
+  const [api, setApi] = useState([]);
+  const history = useHistory();
 
   useEffect(() => {
     axios
       .get("https://api.covid19india.org/data.json")
       .then((date) => {
-        setName(date.data.statewise);
+        setApi(date.data.statewise);
         console.log(date);
       })
       .catch((err) => console.log(err));
   }, []);
 
   return (
-    <div>
-      {name.map((arr) => {
+    <TopContainer>
+      {api.map((arr) => {
         return (
           <MainDiv>
             <ItemBox>
@@ -25,18 +27,25 @@ function UsingApi() {
               <Number>{arr.confirmed}</Number>
             </ItemBox>
             <ViewButton
-              onClick={() =>
-                setName(name.filter((tempName) => tempName.state === arr.state))
-              }
+              onClick={() => history.push(`/covid-19/${arr.state}`)}
+              // onClick={() =>
+              //   setApi(api.filter((tempName) => tempName.state === arr.state))
+              // }
             >
               View More
             </ViewButton>
           </MainDiv>
         );
       })}
-    </div>
+    </TopContainer>
   );
 }
+
+// styled component new
+
+const TopContainer = styled.div`
+  margin: 90px 0;
+`;
 
 const MainDiv = styled.div`
   display: flex;

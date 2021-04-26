@@ -38,7 +38,7 @@ function BasicRedux() {
   };
 
   return (
-    <div>
+    <TopContainer>
       {isLogged ? <h1>Welcome Trupesh</h1> : <h1>User in not loged-in</h1>}
       <button onClick={() => dispatch(log())}>Make user login</button>
       <br /> <br />
@@ -61,7 +61,7 @@ function BasicRedux() {
       >
         -
       </button>
-      {isLogged ? (
+      {isLogged && (
         <>
           <ItemBox>
             <h3>{`Total User ${intstate?.length}`}</h3>
@@ -90,19 +90,21 @@ function BasicRedux() {
             Add
           </button>
         </>
-      ) : (
-        ""
       )}
-    </div>
+    </TopContainer>
   );
 }
 
 // styled component new
 
+const TopContainer = styled.div`
+  margin: 90px 0;
+`;
+
 const ItemBox = styled.div`
   font-size: 1em;
-  width: fit-content;
-  padding: 0.25em 1em;
+  width: 350px;
+  padding: 0px 10px;
   margin: 20px 0;
   border: 2px dotted palevioletred;
   border-radius: 3px;
