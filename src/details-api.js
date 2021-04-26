@@ -20,18 +20,19 @@ function DatailApi() {
       .catch((err) => console.log(err));
   }, []);
 
-  const asd = api.filter((tempName) => tempName.state === currentState);
-  console.log(asd);
+  const StateDatail = api.filter((tempName) => tempName.state === currentState);
+  console.log(StateDatail);
 
   return (
     <TopContainer>
       <Backbutton onClick={() => history.goBack()}>Back</Backbutton>
+
       <ItemBox>
         <State>{currentState}</State>
-        <Datails>{`Active cases ${asd[0]?.active}`}</Datails>
-        <Datails>{`Recovered ${asd[0]?.recovered}`}</Datails>
-        <Datails>{`Deaths ${asd[0]?.deaths}`}</Datails>
-        <Datails>{`Last Updated Time ${asd[0]?.lastupdatedtime}`}</Datails>
+        <Datails>{`Active cases ${StateDatail[0]?.active}`}</Datails>
+        <Datails>{`Recovered ${StateDatail[0]?.recovered}`}</Datails>
+        <Datails>{`Deaths ${StateDatail[0]?.deaths}`}</Datails>
+        <Datails>{`Last Updated Time ${StateDatail[0]?.lastupdatedtime}`}</Datails>
       </ItemBox>
     </TopContainer>
   );
