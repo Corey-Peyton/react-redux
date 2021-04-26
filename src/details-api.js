@@ -15,18 +15,22 @@ function DatailApi() {
       .get("https://api.covid19india.org/data.json")
       .then((date) => {
         setApi(date.data.statewise);
-        console.log(date.data.statewise);
+        // console.log(date.data.statewise);
       })
       .catch((err) => console.log(err));
   }, []);
+
+  const asd = api.filter((tempName) => tempName.state === currentState);
+  console.log(asd);
 
   return (
     <TopContainer>
       <Backbutton onClick={() => history.goBack()}>Back</Backbutton>
       <h1>{currentState}</h1>
-      {/* {api.map((arr) => {
-        return <h3>{arr.confirmed}</h3>;
-      })} */}
+      <h2>{`Active cases ${asd[0]?.active}`}</h2>
+      <h2>{`Recovered ${asd[0]?.recovered}`}</h2>
+      <h2>{`Deaths ${asd[0]?.deaths}`}</h2>
+      <h2>{`Last Updated Time ${asd[0]?.lastupdatedtime}`}</h2>
     </TopContainer>
   );
 }
