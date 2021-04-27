@@ -20,16 +20,13 @@ function BasicRedux() {
 
   console.log(intstate);
 
-  // console.log(uuidv4());
-  const id = uuidv4();
-
   const submitHand = () => {
     //  dispatch(storename([name, id]));
     dispatch(
       storename([
         ...intstate,
         {
-          Id: id,
+          Id: uuidv4(),
           Name: name,
         },
       ])
@@ -112,6 +109,7 @@ const ItemBox = styled.div`
 
 const DeleteButton = styled.button`
   color: palevioletred;
+  cursor: pointer;
   font-size: 1em;
   padding: 0.25em 1em;
   margin: 5px 0 0;
