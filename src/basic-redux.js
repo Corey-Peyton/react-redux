@@ -23,13 +23,10 @@ function BasicRedux() {
   const submitHand = () => {
     //  dispatch(storename([name, id]));
     dispatch(
-      storename([
-        ...intstate,
-        {
-          Id: uuidv4(),
-          Name: name,
-        },
-      ])
+      storename({
+        Id: uuidv4(),
+        Name: name,
+      })
     );
     setName("");
   };

@@ -12,7 +12,7 @@ export default function (state = intstate, action) {
     case "ADD_NAME":
       return {
         ...state,
-        intstate: action.data,
+        user: [...state.user, action.data],
       };
     case "REMOVE_NAME":
       return {
