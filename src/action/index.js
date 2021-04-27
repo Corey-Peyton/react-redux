@@ -29,3 +29,10 @@ export const removename = (id) => {
     id: id,
   };
 };
+export const updateuser = (id, data) => {
+  return {
+    type: "UPDATE_USER",
+    id: id,
+    data: data,
+  };
+};

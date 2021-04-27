@@ -19,6 +19,13 @@ export default function (state = intstate, action) {
         ...state,
         user: state.user.filter((tempName) => tempName.Id !== action.id),
       };
+    case "UPDATE_USER":
+      return {
+        ...state,
+        user: state.user.filter((tempName) =>
+          tempName.Id === action.id ? [...state.user, "Lol"] : state
+        ),
+      };
     default:
       return state;
   }

@@ -66,11 +66,11 @@ function BasicRedux() {
             <ol key={i}>
               <li>{`Name is: ${profile.Name}`}</li>
               <li>{`ID is: ${profile.Id}`}</li>
-              <DeleteButton
+              <EditButton
                 onClick={() => history.push(`/basic-redux/${profile.Id}`)}
               >
-                Veiw
-              </DeleteButton>
+                Edit
+              </EditButton>
               <DeleteButton onClick={() => dispatch(removename(profile.Id))}>
                 Delete
               </DeleteButton>
@@ -104,6 +104,16 @@ const ItemBox = styled.div`
   padding: 0px 10px;
   margin: 20px 0;
   border: 2px dotted palevioletred;
+  border-radius: 3px;
+`;
+
+const EditButton = styled.button`
+  color: palevioletred;
+  cursor: pointer;
+  font-size: 1em;
+  padding: 0.25em 1em;
+  margin: 10px 10px 0 0;
+  border: 1px solid palevioletred;
   border-radius: 3px;
 `;
 

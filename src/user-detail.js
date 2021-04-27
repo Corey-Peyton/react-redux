@@ -1,15 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { useParams, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import { updateuser } from "./action";
 
 function UserDetail() {
-  const history = useHistory();
   const { id } = useParams();
+  const history = useHistory();
+  const dispatch = useDispatch();
+
   const { user = [] } = useSelector((state) => state.userReduscer);
 
   const curruntuser = user.filter((temp) => temp.Id === id);
   console.log(curruntuser);
+  const [inputva, setInputValue] = useState(curruntuser[0].Name);
+
+  const edituser = () => {
+    dispatch(updateuser({ id: curruntuser[0].Id, data: inputva }));
+    history.push("/basic-redux");
+  };
   return (
     <TopContainer>
       <Backbutton onClick={() => history.goBack()}>Back</Backbutton>
@@ -22,6 +31,14 @@ function UserDetail() {
           </ItemBox>
         );
       })}
+      <p>Edite Name</p>
+      <p>{inputva}</p>
+      <input
+        type="text"
+        onChange={(e) => setInputValue(e.target.value)}
+        value={inputva}
+      />
+      <UpdateButton onClick={edituser}>Edit</UpdateButton>
     </TopContainer>
   );
 }
@@ -44,6 +61,16 @@ const Backbutton = styled.button`
   padding: 0.25em 1em;
   border: 1px solid palevioletred;
   border-radius: 10px;
+`;
+
+const UpdateButton = styled.button`
+  color: palevioletred;
+  cursor: pointer;
+  font-size: 1em;
+  padding: 0.25em 1em;
+  margin: 10px;
+  border: 1px solid palevioletred;
+  border-radius: 3px;
 `;
 
 const ItemBox = styled.div`
