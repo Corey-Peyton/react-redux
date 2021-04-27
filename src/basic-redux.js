@@ -55,33 +55,31 @@ function BasicRedux() {
       >
         -
       </button>
-          <ItemBox>
-            <h3>{`Total User ${user?.length}`}</h3>
-            {user?.map((profile, i) => {
-              console.log(profile);
-              return (
-                <ol key={i}>
-                  <li>{`Name is ${profile.Name}`}</li>
-                  <li>{`ID is ${profile.Id}`}</li>
-                  <DeleteButton
-                    onClick={() => dispatch(removename(profile.Id))}
-                  >
-                    Delete
-                  </DeleteButton>
-                </ol>
-              );
-            })}
-          </ItemBox>
-          <input
-            type="text"
-            //disabled={!isLogged}
-            onChange={(e) => setName(e.target.value)}
-            placeholder="enter name"
-            value={name}
-          />
-          <button disabled={!name} onClick={submitHand}>
-            Add
-          </button>
+      <ItemBox>
+        <h3>{`Total User ${user?.length}`}</h3>
+        {user?.map((profile, i) => {
+          console.log(profile);
+          return (
+            <ol key={i}>
+              <li>{`Name is ${profile.Name}`}</li>
+              <li>{`ID is ${profile.Id}`}</li>
+              <DeleteButton onClick={() => dispatch(removename(profile.Id))}>
+                Delete
+              </DeleteButton>
+            </ol>
+          );
+        })}
+      </ItemBox>
+      <input
+        type="text"
+        //disabled={!isLogged}
+        onChange={(e) => setName(e.target.value)}
+        placeholder="enter name"
+        value={name}
+      />
+      <button disabled={!name} onClick={submitHand}>
+        Add
+      </button>
     </TopContainer>
   );
 }
