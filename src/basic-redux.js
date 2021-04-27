@@ -3,9 +3,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { inc, dec, log, storename, removename } from "./action";
 import styled from "styled-components";
 import { v4 as uuidv4 } from "uuid";
+import { useHistory } from "react-router";
 
 function BasicRedux() {
   const dispatch = useDispatch();
+  const history = useHistory();
   const [num, setnum] = useState();
   const [name, setName] = useState("");
 
@@ -26,6 +28,7 @@ function BasicRedux() {
       storename({
         Id: uuidv4(),
         Name: name,
+        Age: 25,
       })
     );
     setName("");
@@ -61,8 +64,13 @@ function BasicRedux() {
           console.log(profile);
           return (
             <ol key={i}>
-              <li>{`Name is ${profile.Name}`}</li>
-              <li>{`ID is ${profile.Id}`}</li>
+              <li>{`Name is: ${profile.Name}`}</li>
+              <li>{`ID is: ${profile.Id}`}</li>
+              <DeleteButton
+                onClick={() => history.push(`/basic-redux/${profile.Id}`)}
+              >
+                Veiw
+              </DeleteButton>
               <DeleteButton onClick={() => dispatch(removename(profile.Id))}>
                 Delete
               </DeleteButton>

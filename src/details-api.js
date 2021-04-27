@@ -26,18 +26,17 @@ function DatailApi() {
   return (
     <TopContainer>
       <Backbutton onClick={() => history.goBack()}>Back</Backbutton>
-      
-      { StateDatail?.map((datails, i)=> {
-        console.log(datails);
-        return(
-        <ItemBox key={i}>
-          <State>{datails?.state}</State>
-          <Datails>{`Active cases ${datails?.active}`}</Datails>
-          <Datails>{`Recovered ${datails?.recovered}`}</Datails>
-          <Datails>{`Deaths ${datails?.deaths}`}</Datails>
-          <Datails>{`Last Updated Time ${datails?.lastupdatedtime}`}</Datails>
-        </ItemBox>
-        )
+
+      {StateDatail?.map((datails, i) => {
+        return (
+          <ItemBox key={i}>
+            <State>{datails?.state}</State>
+            <Datails>{`Active cases: ${datails?.active}`}</Datails>
+            <Datails>{`Recovered: ${datails?.recovered}`}</Datails>
+            <Datails>{`Deaths: ${datails?.deaths}`}</Datails>
+            <Datails>{`Last Updated Time: ${datails?.lastupdatedtime}`}</Datails>
+          </ItemBox>
+        );
       })}
     </TopContainer>
   );

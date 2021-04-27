@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import Manu from "./nav-manu";
 import DatailApi from "./details-api";
+import UserDetail from "./user-detail";
 
 function App() {
   return (
@@ -18,6 +19,9 @@ function App() {
       <Switch>
         <Route exact path="/basic-redux">
           <BasicRedux />
+        </Route>
+        <Route exact path="/basic-redux/:id">
+          <UserDetail />
         </Route>
         <Route path="/normal-todo">
           <Todo />
