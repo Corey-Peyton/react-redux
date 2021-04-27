@@ -11,14 +11,14 @@ function BasicRedux() {
 
   const countreducer = useSelector((state) => state.countreducer);
   const isLogged = useSelector((state) => state.isLogged);
-  const { intstate = [] } = useSelector((state) => state.userReduscer);
+  const { user = [] } = useSelector((state) => state.userReduscer);
 
   // const arr = [1, 2, 3];
   // console.log(arr);
 
   // console.log(arr.filter((n) => n !== 2));
 
-  console.log(intstate);
+  console.log(user);
 
   const submitHand = () => {
     //  dispatch(storename([name, id]));
@@ -55,11 +55,10 @@ function BasicRedux() {
       >
         -
       </button>
-      {isLogged && (
-        <>
           <ItemBox>
-            <h3>{`Total User ${intstate?.length}`}</h3>
-            {intstate?.map((profile, i) => {
+            <h3>{`Total User ${user?.length}`}</h3>
+            {user?.map((profile, i) => {
+              console.log(profile);
               return (
                 <ol key={i}>
                   <li>{`Name is ${profile.Name}`}</li>
@@ -83,8 +82,6 @@ function BasicRedux() {
           <button disabled={!name} onClick={submitHand}>
             Add
           </button>
-        </>
-      )}
     </TopContainer>
   );
 }

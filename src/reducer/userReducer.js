@@ -1,7 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 /* eslint-disable default-case */
 const intstate = {
-  user: [{ Id: 1, Name: "lol" }],
+  user: [{ Id: '1', Name: "Fixed" }],
 };
 
 export default function (state = intstate, action) {
@@ -17,7 +17,7 @@ export default function (state = intstate, action) {
     case "REMOVE_NAME":
       return {
         ...state,
-        intstate: state.intstate.filter(
+        user: state.user.filter(
           (tempName) => tempName.Id !== action.id
         ),
       };
