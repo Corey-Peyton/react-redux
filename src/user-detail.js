@@ -31,8 +31,7 @@ function UserDetail() {
           </ItemBox>
         );
       })}
-      <p>Edite Name</p>
-      <p>{inputva}</p>
+      <p>{`Edited Name ${inputva}`}</p>
       <input
         type="text"
         onChange={(e) => setInputValue(e.target.value)}

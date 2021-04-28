@@ -61,7 +61,7 @@ function BasicRedux() {
       <ItemBox>
         <h3>{`Total User ${user?.length}`}</h3>
         {user?.map((profile, i) => {
-          console.log(profile);
+          // console.log(profile);
           return (
             <ol key={i}>
               <li>{`Name is: ${profile.Name}`}</li>
