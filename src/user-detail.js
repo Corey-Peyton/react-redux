@@ -26,7 +26,7 @@ function UserDetail() {
         return (
           <ItemBox key={i}>
             <Datails>{`User Id: ${user?.Id}`}</Datails>
-            <Datails>{`User Name: ${user?.Name}`}</Datails>
+            <Datails>{`User Name: ${inputva}`}</Datails>
             <Datails>{`User Age: ${user?.Age}`}</Datails>
           </ItemBox>
         );
