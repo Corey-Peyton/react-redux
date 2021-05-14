@@ -23,7 +23,7 @@ export default function (state = intstate, action) {
       return {
         ...state,
         user: state.user.filter((tempName) =>
-          tempName.Id === action.id ? [...state.user, "Lol"] : state
+          tempName.Id === action.id ? [...state.user, "lol"] : state
         ),
       };
     default:
