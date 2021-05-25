@@ -5,7 +5,7 @@ import styled from "styled-components";
 const Manu = () => {
   let history = useHistory();
   let location = useLocation();
-  console.log(location.pathname);
+  // console.log(location.pathname);
 
   return (
     <MainCont>

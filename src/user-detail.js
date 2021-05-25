@@ -12,12 +12,13 @@ function UserDetail() {
   const { user = [] } = useSelector((state) => state.userReduscer);
 
   const curruntuser = user.filter((temp) => temp.Id === id);
-  console.log(curruntuser);
+  // console.log(curruntuser);
   const [inputva, setInputValue] = useState(curruntuser[0].Name);
 
   const edituser = () => {
-    dispatch(updateuser({ id: curruntuser[0].Id, data: inputva }));
+    dispatch(updateuser({ id: curruntuser[0].Id, namev: inputva }));
     history.push("/basic-redux");
+    // alert(`Updated Value ${inputva}`);
   };
   return (
     <TopContainer>
