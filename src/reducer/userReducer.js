@@ -6,7 +6,8 @@ const intstate = {
 
 export default function (state = intstate, action) {
   // console.log(state);
-  console.log(action.id);
+  // console.log(action.id);
+  // console.log(action.data.namev);
 
   switch (action.type) {
     case "ADD_NAME":
@@ -23,7 +24,7 @@ export default function (state = intstate, action) {
       return {
         ...state,
         user: state.user.map((tempName) =>
-          tempName.Id !== action.id ? [{ Name: action.id.namev }] : state
+          tempName.Id === action.id ? { Name: action.data } : state
         ),
       };
     default:

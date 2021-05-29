@@ -37,9 +37,11 @@ function BasicRedux() {
   return (
     <TopContainer>
       {isLogged ? <h1>Welcome Trupesh</h1> : <h1>User in not loged-in</h1>}
-      <button onClick={() => dispatch(log())}>Make user login</button>
+      <UserLoginBtn onClick={() => dispatch(log())}>
+        {isLogged ? `Logout` : `Make user login`}
+      </UserLoginBtn>
       <br /> <br />
-      <h2 style={{ margin: "10px 0" }}>Counter {countreducer}</h2>
+      <h2 style={{ margin: "5px 0" }}>Counter {countreducer}</h2>
       <input
         disabled={!isLogged}
         type="number"
@@ -104,6 +106,16 @@ const ItemBox = styled.div`
   padding: 0px 10px;
   margin: 20px 0;
   border: 2px dotted palevioletred;
+  border-radius: 3px;
+`;
+
+const UserLoginBtn = styled.button`
+  color: palevioletred;
+  cursor: pointer;
+  font-size: 1em;
+  padding: 0.25em 1em;
+  margin: 5px 0 0;
+  border: 1px solid palevioletred;
   border-radius: 3px;
 `;
 
