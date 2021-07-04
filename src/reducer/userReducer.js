@@ -6,7 +6,7 @@ const intstate = {
 
 export default function (state = intstate, action) {
   // console.log(state);
-  // console.log(action.id);
+  console.log(action.data);
   // console.log(action.data.namev);
 
   switch (action.type) {
@@ -24,7 +24,7 @@ export default function (state = intstate, action) {
       return {
         ...state,
         user: state.user.map((tempName) =>
-          tempName.Id === action.id ? { Name: action.data } : state
+          tempName.Id === action.data.id ? action.data : state.user
         ),
       };
     default:

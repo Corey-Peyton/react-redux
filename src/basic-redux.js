@@ -66,8 +66,8 @@ function BasicRedux() {
           // console.log(profile);
           return (
             <ol key={i}>
-              <li>{`Name is: ${profile.Name}`}</li>
-              <li>{`ID is: ${profile.Id}`}</li>
+              <li>{`Name is: ${profile?.Name}`}</li>
+              <li>{`ID is: ${profile?.Id}`}</li>
               <EditButton
                 onClick={() => history.push(`/basic-redux/${profile.Id}`)}
               >
